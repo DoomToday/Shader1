@@ -6,9 +6,11 @@ public class Ripple : MonoBehaviour
 {
     private Material material;
     private Color previousColor;
+    private Transform playerTransform;
 
     private void Start()
     {
+        playerTransform = this.transform;
         var renderer = GetComponent<MeshRenderer>();
         material = Instantiate(renderer.sharedMaterial);
         renderer.material = material;
@@ -45,9 +47,14 @@ public class Ripple : MonoBehaviour
         }
     }
 
+    private void CastRay()
+    {
+        
+    }
+
     private void StartRipple(Vector3 center)
     {
-        Color rippleColor = Color.HSVToRGB(Random.value, 1, 1);
+        Color rippleColor = Color.gray;
 
         material.SetVector("_RippleCenter", center);
 
